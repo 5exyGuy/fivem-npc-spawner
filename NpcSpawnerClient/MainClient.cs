@@ -10,15 +10,16 @@ namespace NpcSpawnerClient
     public class MainClient : BaseScript
     {
         private static List<NPC> NPCs = new List<NPC>();
-        private static Config Config;
+        private static Config Config = new Config();
         private static Vector3 firstPos;
         private static bool firstSpawn = true;
+        private static bool positionTickIsOn = false;
 
         public MainClient()
         {
             EventHandlers.Add("npcspawner:spawnNPC", new Action<dynamic>(SpawnNPC));
             EventHandlers.Add("npcspawner:deleteNPC", new Action<int>(DeleteNPC));
-            EventHandlers.Add("playerSpawned", new Action<dynamic>(OnPlayerSpawn));
+            EventHandlers.Add("playerSpawned", new Action(OnPlayerSpawned));
             EventHandlers.Add("npcspawner:onConfigLoaded", new Action<dynamic>(OnConfigLoaded));
             EventHandlers.Add("onClientResourceStart", new Action<string>(OnClientResourceStart));
             EventHandlers.Add("onClientResourceStop", new Action<string>(OnClientResourceStop));
@@ -28,7 +29,17 @@ namespace NpcSpawnerClient
         {
             if (API.GetCurrentResourceName() != resourceName) return;
 
+            TriggerServerEvent("npcspawner:onPlayerLoaded");
+
             Tick += OnTick;
+
+            if (!object.ReferenceEquals(Game.PlayerPed.Position, null)) {
+                if (!positionTickIsOn)
+                {
+                    Tick += OnPositionUpdate;
+                    positionTickIsOn = true;
+                }
+            }
         }
 
         private void OnClientResourceStop(string resourceName)
@@ -44,22 +55,27 @@ namespace NpcSpawnerClient
 
         private void OnConfigLoaded(dynamic data)
         {
-            Config = new Config();
             Config.DebugPrefix = data.DebugPrefix;
             Config.EnableDebugMode = data.EnableDebugMode;
             Config.NameAboveTheHead = data.NameAboveTheHead;
         }
 
-        private void OnPlayerSpawn(dynamic spawnInfo)
+        private void OnPlayerSpawned()
         {
             if (firstSpawn)
             {
                 TriggerServerEvent("npcspawner:onPlayerLoaded");
-                Tick += OnPositionUpdate;
+                if (!positionTickIsOn)
+                {
+                    Tick += OnPositionUpdate;
+                    positionTickIsOn = true;
+                }
                 firstSpawn = false;
             }
 
-            firstPos = new Vector3(spawnInfo.x, spawnInfo.y, spawnInfo.z);
+            Vector3 playerPos = Game.PlayerPed.Position;
+
+            firstPos = playerPos;
         }
 
         private async void SpawnNPC(dynamic data)
@@ -70,7 +86,7 @@ namespace NpcSpawnerClient
                 R = data.NameColor.R,
                 G = data.NameColor.G,
                 B = data.NameColor.B,
-                Alpha = data.NameColor.A
+                Alpha = data.NameColor.Alpha
             };
             npc.NameSize = data.NameSize;
             npc.Model = data.Model;
