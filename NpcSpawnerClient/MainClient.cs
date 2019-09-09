@@ -20,6 +20,8 @@ namespace NpcSpawnerClient
             EventHandlers.Add("npcspawner:deleteNPC", new Action<int>(DeleteNPC));
             EventHandlers.Add("playerSpawned", new Action<dynamic>(OnPlayerSpawn));
             EventHandlers.Add("npcspawner:onConfigLoaded", new Action<dynamic>(OnConfigLoaded));
+            EventHandlers.Add("onClientResourceStart", new Action<string>(OnClientResourceStart));
+            EventHandlers.Add("onClientResourceStop", new Action<string>(OnClientResourceStop));
         }
 
         private void OnClientResourceStart(string resourceName)
