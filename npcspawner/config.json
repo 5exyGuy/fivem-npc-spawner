@@ -1,0 +1,12 @@
+{
+	"Server": {
+		"DebugPrefix": "[NPC]",
+		"EnableDebugMode": true,
+		"VisibilityDistance": 20.0
+	},
+	"Client": {
+		"DebugPrefix": "[NPC]",
+		"EnableDebugMode": true,
+		"NameAboveTheHead": true
+	}
+}

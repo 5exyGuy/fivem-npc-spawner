@@ -12,6 +12,7 @@ namespace NpcSpawnerClient
         private static List<NPC> NPCs = new List<NPC>();
         private static Config Config;
         private static Vector3 firstPos;
+        private static bool firstSpawn = true;
 
         public MainClient()
         {
@@ -33,7 +34,12 @@ namespace NpcSpawnerClient
 
         private void OnPlayerSpawn(dynamic spawnInfo)
         {
-            TriggerServerEvent("npcspawner:onPlayerLoaded");
+            if (firstSpawn)
+            {
+                TriggerServerEvent("npcspawner:onPlayerLoaded");
+                Tick += OnPositionUpdate;
+                firstSpawn = false;
+            }
 
             firstPos = new Vector3(spawnInfo.x, spawnInfo.y, spawnInfo.z);
         }

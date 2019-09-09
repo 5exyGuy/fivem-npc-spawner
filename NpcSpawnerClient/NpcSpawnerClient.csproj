@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NpcSpawnerClient</RootNamespace>
-    <AssemblyName>NpcSpawnerClient</AssemblyName>
+    <AssemblyName>NpcSpawnerClient.net</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

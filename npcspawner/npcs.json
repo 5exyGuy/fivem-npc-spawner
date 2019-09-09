@@ -1,0 +1,42 @@
+[
+   {
+     "Name": "Petras",
+	 "NameColor": {
+		"R": 255,
+		"G": 255,
+		"B": 255,
+		"Alpha": 255
+	 },
+	 "NameSize": 1.0,
+     "Model": "s_m_m_armoured_01",
+     "Position": {
+       "X": -802.311,
+       "Y": 175.056,
+       "Z": 71.8446
+     },
+     "Heading": 1.0,
+     "IsInvincible": true,
+     "IsPositionFrozen": true,
+     "BlockPermanentEvents": true
+   },
+   {
+     "Name": "Jonas",
+	 "NameColor": {
+		"R": 255,
+		"G": 255,
+		"B": 255,
+		"Alpha": 255
+	 },
+	 "NameSize": 1.0,
+     "Model": "s_m_m_armoured_01",
+     "Position": {
+       "X": -801.311,
+       "Y": 174.056,
+       "Z": 71.8446
+     },
+     "Heading": 1.0,
+     "IsInvincible": true,
+     "IsPositionFrozen": true,
+     "BlockPermanentEvents": true
+   },
+ ]
