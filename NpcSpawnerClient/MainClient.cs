@@ -20,8 +20,24 @@ namespace NpcSpawnerClient
             EventHandlers.Add("npcspawner:deleteNPC", new Action<int>(DeleteNPC));
             EventHandlers.Add("playerSpawned", new Action<dynamic>(OnPlayerSpawn));
             EventHandlers.Add("npcspawner:onConfigLoaded", new Action<dynamic>(OnConfigLoaded));
+        }
+
+        private void OnClientResourceStart(string resourceName)
+        {
+            if (API.GetCurrentResourceName() != resourceName) return;
 
             Tick += OnTick;
+        }
+
+        private void OnClientResourceStop(string resourceName)
+        {
+            for (int i = 0; i < NPCs.Count; i++)
+            {
+                NPCs[i].DeleteNPC();
+                if (Config.EnableDebugMode)
+                    Debug.WriteLine($"{Config.DebugPrefix} {NPCs[i].Name} has been deleted");
+                NPCs.RemoveAt(i);
+            }
         }
 
         private void OnConfigLoaded(dynamic data)
