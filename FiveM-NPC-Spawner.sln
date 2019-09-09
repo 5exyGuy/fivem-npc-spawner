@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NpcSpawnerClient", "NpcSpawnerClient\NpcSpawnerClient.csproj", "{5029032F-3A3E-4EF1-A822-DB5E282282F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NpcSpawnerServer", "NpcSpawnerServer\NpcSpawnerServer.csproj", "{8D0D29AE-A6D8-470E-A9D2-56AC13705B93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5029032F-3A3E-4EF1-A822-DB5E282282F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5029032F-3A3E-4EF1-A822-DB5E282282F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5029032F-3A3E-4EF1-A822-DB5E282282F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5029032F-3A3E-4EF1-A822-DB5E282282F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D0D29AE-A6D8-470E-A9D2-56AC13705B93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D0D29AE-A6D8-470E-A9D2-56AC13705B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D0D29AE-A6D8-470E-A9D2-56AC13705B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D0D29AE-A6D8-470E-A9D2-56AC13705B93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B0703E3-532D-42F8-AA7A-C72AA1B1DE42}
+	EndGlobalSection
+EndGlobal
