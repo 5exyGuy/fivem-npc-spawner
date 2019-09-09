@@ -100,7 +100,7 @@ namespace NpcSpawnerClient
             npc.HashKey = data.HashKey;
             npc.Code = data.Code;
 
-            Model model = new Model("csb_mweather");
+            Model model = new Model(npc.Model);
 
             while (!model.IsLoaded)
             {
